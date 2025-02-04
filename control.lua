@@ -97,5 +97,16 @@ local function locate_vehicles(event)
     end
 end
 
-script.on_event("vehicle-finder-input", locate_vehicles)
-script.on_event(defines.events.on_lua_shortcut, locate_vehicles)
+--- @param event EventData.CustomInputEvent
+script.on_event("vehicle-finder-input", function(event)
+    if event then
+        locate_vehicles(event)
+    end
+end)
+
+--- @param event EventData.on_lua_shortcut
+script.on_event(defines.events.on_lua_shortcut, function(event)
+    if event and event.prototype_name == "vehicle-finder-shortcut" then
+        locate_vehicles(event)
+    end
+end)
