@@ -74,7 +74,7 @@ local function locate_vehicles(event)
         -- Send an alert for each found vehicle
         for _, vehicle in pairs(vehicles) do
             local message
-            local icon = { type = "item", name = vehicle.name }
+            local icon = { type = "entity", name = vehicle.name }
             local name = vehicle.entity_label or vehicle.localised_name
 
             if player.mod_settings["vehicle-finder-color"].value and vehicle.color and vehicle.color.a > 0 then
